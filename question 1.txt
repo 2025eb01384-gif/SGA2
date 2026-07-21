@@ -1,0 +1,56 @@
+Vrati Sagar Surana
+01384
+Q1
+
+
+Linux Commands used
+
+find - Searches all submission files recursively.
+
+sha256sum - Generates a unique hash for every file to detect duplicates.
+
+grep - Checks whether the file hash already exists.
+
+cp - Copies only unique files into the backup directory.
+
+awk - Extracts only the hash value from sha256sum output.
+
+mktemp - Creates a temporary file to store hashes safely.
+
+rm - Removes the temporary hash file after execution.
+
+
+
+Redirection Operators Used
+
+ `>` - Writes the backup report to `Backup_Report.txt`, overwriting any existing content.
+        
+ `>>` - Appends error messages to `Error_Log.txt` and stores hashes in the temporary file.
+            
+`2>>` - Redirects only standard error (stderr) to the error log while leaving normal output unchanged. 
+
+
+
+File Handling Techniques Used
+
+Recursive File Search
+The find command scans all student submission files in the directory tree.
+
+Duplicate Detection
+Each file's SHA-256 hash is generated.
+Files with identical hashes are treated as duplicates.
+
+Backup of Unique Files
+Only files whose hash has not been encountered before are copied to the backup directory.
+
+Report Generation
+The script counts:
+ - Total files processed
+ - Duplicate files detected
+ - Unique files backed up
+
+Error Logging
+All error messages are redirected to Error_Log.txt using 2>>, making debugging easier while keeping the report clean.
+
+
+
