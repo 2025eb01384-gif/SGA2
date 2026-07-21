@@ -1,0 +1,31 @@
+Question 2
+VRAT SURANA
+01384
+
+1. Process Creation (fork())
+	•	The fork() system call creates a new child process.
+	•	Each child process has its own Process ID (PID).
+	•	The parent process continues executing after creating each child.
+Purpose: Simulates multiple web server worker processes.
+
+2. Monitoring Child Processes (wait())
+	•	The parent process uses wait() to monitor child execution.
+	•	When a child finishes, wait() collects its exit status.
+	•	This prevents completed child processes from remaining in the process table.
+Purpose: Prevents zombie processes.
+
+3. Signal Handling (kill())
+	•	The kill() system call sends signals to a process.
+	•	SIGKILL immediately terminates an unresponsive child process.
+Example:
+kill(pid, SIGKILL);
+Purpose: Stops child processes that become unresponsive.
+
+4. How They Work Together
+	•	fork() creates multiple child processes to perform tasks.
+	•	The parent monitors the children using wait().
+	•	If a child becomes unresponsive, the parent sends a SIGKILL signal using kill().
+	•	wait() then removes the terminated child from the process table, preventing zombie processes.
+
+
+Thus, the server remains responsive by managing child processes efficiently.
