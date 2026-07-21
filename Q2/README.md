@@ -17,13 +17,13 @@ Develop a C program that:
 ## Compilation
 
 ```bash
-gcc Question2.c -o Question2
+gcc main.c -o main
 ```
 
 ## Execution
 
 ```bash
-./Question2
+./main
 ```
 
 ---
