@@ -1,0 +1,10 @@
+
+
+:wq
+
+
+
+
+
+
+vi config.txt

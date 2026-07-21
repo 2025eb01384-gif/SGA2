@@ -1,0 +1,12 @@
+VRATI SURANA
+01384
+
+
+Command: vi config.txt
+Explanation: Opened the file config.txt in the vi editor. While editing, vi automatically creates a swap file to protect unsaved changes.
+
+Command: vi -r config.txt
+Explanation: Recovered the file using the swap file created before the system crash. This restored the latest recoverable version of the unsaved work.
+
+Command: ls -la
+Explanation: Listed all files, including hidden files. Verified that the swap file (such as .config.txt.swp) was present for recovery.
