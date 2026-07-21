@@ -1,0 +1,52 @@
+VRATI SURANA
+01384
+
+Explanation of Linux System Calls
+1. open()
+
+fd = open("employee.dat", O_CREAT | O_RDWR, 0644);
+
+	•	Creates the file if it does not exist.
+	•	Opens it for both reading and writing.
+	•	Returns a file descriptor used in later system calls.
+Purpose: Creates and opens the employee database file.
+
+2. write()
+
+write(fd, &e1, sizeof(e1));
+
+	•	Writes employee records directly into the file.
+	•	No standard library functions like fprintf() are used.
+Purpose: Stores employee records efficiently.
+
+3. lseek()
+
+lseek(fd, sizeof(struct Employee), SEEK_SET);
+
+	•	Moves the file pointer to a specific record.
+	•	Enables random (direct) access to any record.
+Purpose: Updates or retrieves a record without rewriting the entire file.
+
+4. read()
+
+read(fd, &emp, sizeof(emp));
+
+	•Reads a record from the current file position.
+Purpose: Retrieves any employee record efficiently.
+
+5. close()
+
+close(fd);
+
+	•	Closes the file descriptor.
+	•	Releases system resources.
+Purpose: Ensures safe file handling.
+
+How the System Calls Work Together
+	1	open() creates and opens the employee file.
+	2	write() stores employee records.
+	3	lseek() moves the file pointer directly to the desired record.
+	4	write() updates only that record instead of rewriting the whole file.
+	5	lseek() positions the pointer again for retrieval.
+	6	read() fetches the required employee record.
+	7	close() closes the file and releases resources.
